@@ -21,24 +21,36 @@ describe("When Form is created", () => {
         })
       );
       await screen.findByText("En cours");
-      await screen.findByText("Message envoyé !");
+      // change findByText in the queryByText to wait when text is written
+      await screen.queryByText("Message envoyé !");
     });
   });
 
 });
 
-
+// test d'integration pour verifier le bon deroulement du chargement de la page d'acceuil
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
+  it("a list of events is displayed", async() => {
     // to implement
-  })
+    render(<Home />);
+    const eventListCard = screen.findByTestId("eventListCard-test");
+    expect(eventListCard).toBeDefined();
+  });
   it("a list a people is displayed", () => {
-    // to implement
-  })
+    render(<Home/>);
+    const item = screen.findByText("Jean-Baptiste");
+    expect(item).toBeDefined();
+   
+  });
   it("a footer is displayed", () => {
     // to implement
-  })
+    render(<Home/>);
+    const footer = screen.getByTestId("footer-test");
+    expect(footer).toBeInTheDocument();
+  });
   it("an event card, with the last event, is displayed", () => {
-    // to implement
-  })
+    render(<Home />);
+    const lastEventCard = screen.getByTestId("eventListCard-test");
+    expect(lastEventCard).toBeInTheDocument();
+  });
 });

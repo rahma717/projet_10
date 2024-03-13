@@ -13,7 +13,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const { last } = useData();
   return <>
     <header>
       <Menu />
@@ -58,7 +58,7 @@ const Page = () => {
       <section className="PeoplesContainer">
         <h2 className="Title">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
-        <div className="ListContainer">
+        <div className="ListContainer"  data-testid="listTeamCard-test">
           <PeopleCard
             imageSrc="/images/stephanie-liverani-Zz5LQe-VSMY-unsplash.png"
             name="Samira"
@@ -116,15 +116,16 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        <EventCard
+         <EventCard
           imageSrc={last?.cover}
           title={last?.title}
           date={new Date(last?.date)}
           small
-          label="boom"
+          label={last?.type}
+          data-testid="eventListCard-test"
         />
       </div>
-      <div className="col contact">
+      <div className="col contact" data-testid="footer-test">
         <h3>Contactez-nous</h3>
         <address>45 avenue de la République, 75000 Paris</address>
         <div>01 23 45 67 89</div>

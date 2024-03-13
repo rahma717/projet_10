@@ -49,6 +49,7 @@ const Slider = () => {
                   key={`${_.date}`}
                   type="radio"
                   name="radio-button"
+                  // change idx by index to resolve radio button bug
                   checked={index === radioIdx}
                 />
               ))}

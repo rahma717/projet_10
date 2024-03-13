@@ -1,7 +1,7 @@
 /**
  * 
  */
-import getMonth from ".";
+import { getMonth } from "./index";
 
 describe("Date helper", () => {
     describe("When getMonth is called", () => {
