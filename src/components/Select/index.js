@@ -17,9 +17,9 @@ const Select = ({
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
     // add newValue
-    onChange(newValue);
-    setValue(newValue);
-    setCollapsed(newValue);
+    onChange(newValue);// Appelle la fonction onChange passée en prop
+    setValue(newValue);// Met à jour la valeur sélectionnée
+    setCollapsed(newValue);// Met à jour l'état de la liste déroulante (collapsed)
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
